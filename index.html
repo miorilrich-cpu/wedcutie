@@ -1,236 +1,1045 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cute Little Shop ✨</title>
-    <style>
-        /* --- การตั้งค่าธีมและสีพาสเทล --- */
-        :root {
-            --primary-color: #ffb7c5; /* ชมพูพาสเทล */
-            --secondary-color: #b5ead7; /* เขียวมิ้นต์ */
-            --accent-color: #ffdac1; /* ส้มพาสเทล */
-            --bg-color: #fff0f5; /* ชมพูอ่อนมากๆ */
-            --text-color: #6c5ce7; /* ม่วงเข้ม */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Kanit', sans-serif, system-ui;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: #555;
-            padding-bottom: 50px;
-        }
-
-        /* --- ส่วน Header & โลโก้ --- */
-        header {
-            background-color: white;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(255, 183, 197, 0.4);
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-        }
-
-        .logo {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .shop-name {
-            color: var(--text-color);
-            font-size: 1.5rem;
-            margin-top: 8px;
-            font-weight: bold;
-        }
-
-        /* --- ส่วนเครื่องเล่นเพลง (Music Player) --- */
-        .music-card {
-            background: white;
-            margin: 15px auto;
-            padding: 12px 20px;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 2px dashed var(--primary-color);
-        }
-
-        .music-info {
-            font-size: 0.85rem;
-            color: #777;
-        }
-
-        .music-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        /* --- ส่วนแบนเนอร์ร้าน --- */
-        .container {
-            width: 90%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .banner-box {
-            width: 100%;
-            height: 180px;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-
-        .banner-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* --- ส่วนสินค้า (Product Grid) --- */
-        .section-title {
-            text-align: center;
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 18px;
-            padding: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 130px;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .product-title {
-            font-size: 0.95rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .price {
-            color: #e84393;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .buy-btn {
-            display: block;
-            background-color: var(--secondary-color);
-            color: #2d3436;
-            text-decoration: none;
-            padding: 8px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff8f5">
+<title>Ribbon Garden | Little Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Mali:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fff8f5;
+  --paper: #ffffff;
+  --pink: #e9a7b5;
+  --pink-light: #fce9ed;
+  --rose: #a96073;
+  --brown: #65504c;
+  --muted: #a79590;
+  --line: #f0e4df;
+  --green: #a5b9a0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--brown);
+  font-family: "Mali", sans-serif;
+  font-size: 13px;
+  -webkit-tap-highlight-color: transparent;
+}
+button, input, textarea {
+  font: inherit;
+}
+button { cursor: pointer; }
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.page {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: auto;
+  background: var(--bg);
+  overflow: hidden;
+  padding-bottom: 84px;
+}
+/* Top announcement */
+.announcement {
+  padding: 10px 14px;
+  text-align: center;
+  background: #f5dce2;
+  color: #895765;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+/* Store header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px 14px;
+}
+.logo-frame {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #ebc6ce;
+  background: var(--pink-light);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.logo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.logo-placeholder {
+  text-align: center;
+  color: var(--rose);
+  font-size: 24px;
+  line-height: 1;
+}
+.logo-placeholder small {
+  display: block;
+  margin-top: 4px;
+  font-size: 8px;
+}
+.brand {
+  min-width: 0;
+  flex: 1;
+}
+.brand h1 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0;
+  color: #805562;
+  overflow-wrap: anywhere;
+}
+.brand p {
+  margin: 4px 0 0;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .4px;
+}
+.header-mark {
+  align-self: flex-start;
+  color: #d59ba9;
+  font-size: 22px;
+}
+/* Banner */
+.banner-wrap {
+  padding: 0 14px;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.55 / 1;
+  min-height: 190px;
+  max-height: 285px;
+  overflow: hidden;
+  border-radius: 18px 18px 50px 18px;
+  background:
+    radial-gradient(ellipse at 85% 15%, #fffdf8 0 10%, transparent 11%),
+    radial-gradient(ellipse at 80% 85%, #eac2c9 0 12%, transparent 13%),
+    linear-gradient(135deg, #f5dfe3, #f8eee1 60%, #e6eee3);
+}
+.banner-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255,248,245,.92),
+    rgba(255,248,245,.64) 48%,
+    rgba(255,248,245,0) 100%
+  );
+  pointer-events: none;
+}
+.banner-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  width: 67%;
+}
+.banner-label {
+  display: inline-block;
+  border: 1px solid #dcb0b9;
+  border-radius: 20px;
+  padding: 5px 9px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--rose);
+  background: rgba(255,255,255,.55);
+}
+.banner h2 {
+  font-size: clamp(22px, 6vw, 31px);
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 10px 0 4px;
+  color: #815562;
+}
+.banner p {
+  font-size: 11px;
+  line-height: 1.9;
+  margin: 0;
+  color: #8f7771;
+}
+.banner-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 9px 15px;
+  background: #a96f7c;
+  color: white;
+  border-radius: 20px 20px 20px 5px;
+  font-size: 11px;
+  border: 0;
+}
+/* Decoration */
+.intro-note {
+  margin: 20px 20px 24px;
+  padding: 12px 14px;
+  border: 1px dashed #e8bdc7;
+  border-radius: 12px;
+  text-align: center;
+  color: #a16e7b;
+  font-size: 11px;
+  line-height: 1.9;
+  background: rgba(255,255,255,.55);
+}
+/* Section heading */
+.section {
+  padding: 0 18px;
+  margin-top: 28px;
+  scroll-margin-top: 20px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.section-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #805562;
+}
+.section-heading p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+.section-count {
+  font-size: 10px;
+  color: #a87b84;
+  white-space: nowrap;
+}
+/* Category chips */
+.categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  scrollbar-width: none;
+}
+.categories::-webkit-scrollbar { display: none; }
+.category {
+  white-space: nowrap;
+  border: 1px solid #ead8d7;
+  color: #96757a;
+  border-radius: 20px;
+  padding: 8px 13px;
+  background: white;
+  font-size: 11px;
+}
+.category.active {
+  background: #a96f7c;
+  color: white;
+  border-color: #a96f7c;
+}
+/* Product cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+.product-card {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #f0e4df;
+  border-radius: 15px 15px 15px 5px;
+  background: white;
+  position: relative;
+  transition: transform .2s ease;
+}
+.product-card:active {
+  transform: scale(.98);
+}
+.product-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1.03;
+  object-fit: cover;
+  border-radius: 10px 10px 26px 10px;
+  background: #f6e9e6;
+}
+.product-placeholder {
+  display: grid;
+  place-items: center;
+  color: #b78d91;
+  font-size: 34px;
+  background:
+    radial-gradient(circle at 30% 25%, #fff9f4 0 15%, transparent 16%),
+    linear-gradient(145deg, #f5e2e5, #e7eee4);
+}
+.product-info {
+  padding: 11px 3px 5px;
+}
+.product-tag {
+  font-size: 9px;
+  color: #b17e89;
+  margin-bottom: 5px;
+}
+.product-name {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+.product-price {
+  color: #a35f70;
+  font-size: 14px;
+  font-weight: 600;
+}
+.buy-button {
+  border: 1px solid #e8c5cd;
+  border-radius: 50%;
+  background: #fff4f5;
+  color: #a76d7b;
+  width: 30px;
+  height: 30px;
+  font-size: 17px;
+}
+/* Story section */
+.story-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px 18px 18px 5px;
+  background: #f2e8de;
+  padding: 23px 20px;
+}
+.story-card::after {
+  content: "♡";
+  position: absolute;
+  right: 13px;
+  bottom: -30px;
+  font-family: serif;
+  font-size: 120px;
+  color: rgba(173,124,132,.12);
+}
+.story-eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #a16f7a;
+}
+.story-card h3 {
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 10px 0;
+  color: #805562;
+}
+.story-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+  line-height: 2;
+  margin: 0;
+  color: #89736c;
+}
+/* Review */
+.review-card {
+  padding: 18px;
+  border: 1px solid #eddcda;
+  border-radius: 15px;
+  background: white;
+}
+.review-stars {
+  color: #c69a62;
+  font-size: 17px;
+  letter-spacing: 3px;
+}
+.review-score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.review-score strong {
+  font-size: 28px;
+  font-family: "DM Sans", sans-serif;
+  color: #8b626c;
+}
+.review-score span {
+  color: var(--muted);
+  font-size: 10px;
+}
+.review-card p {
+  font-size: 11px;
+  line-height: 2;
+  color: #95817a;
+}
+/* Contact */
+.contact-list {
+  display: grid;
+  gap: 9px;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  background: white;
+  border: 1px solid #f0e3df;
+  border-radius: 12px;
+}
+.contact-left {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.contact-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  background: #f8e8eb;
+  border-radius: 12px;
+  color: #a66e7b;
+  font-size: 15px;
+}
+.contact-link strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.contact-link small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 3px;
+}
+.contact-arrow {
+  color: #b58a91;
+  font-size: 17px;
+}
+/* Footer */
+.footer {
+  margin: 32px 18px 0;
+  padding: 23px 10px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.footer-brand {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  color: #966975;
+}
+.footer p {
+  font-size: 10px;
+  line-height: 2;
+  color: #b09b94;
+}
+/* Bottom navigation */
+.bottom-nav {
+  position: fixed;
+  z-index: 20;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  padding: 10px 7px calc(10px + env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  background: rgba(255,253,250,.96);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid #f0e2df;
+}
+.nav-item {
+  text-align: center;
+  color: #b29b97;
+  font-size: 9px;
+  padding: 5px 2px;
+}
+.nav-item .nav-icon {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+}
+.nav-item.active {
+  color: #a36476;
+  font-weight: 600;
+}
+.nav-item.active .nav-icon {
+  transform: translateY(-2px);
+}
+/* Customize panel */
+.admin-toggle {
+  display: block;
+  margin: 20px auto 0;
+  border: 1px solid #ead5d8;
+  color: #a26e7b;
+  background: white;
+  padding: 9px 16px;
+  border-radius: 20px;
+  font-size: 10px;
+}
+.customizer {
+  margin: 15px 18px;
+  padding: 16px;
+  border: 1px dashed #dfb4be;
+  border-radius: 14px;
+  background: white;
+}
+.customizer[hidden] { display: none; }
+.customizer h3 {
+  font-size: 15px;
+  margin: 0 0 7px;
+  color: #805562;
+}
+.customizer p {
+  font-size: 10px;
+  line-height: 1.9;
+  color: #9d8882;
+}
+.field {
+  display: block;
+  margin-top: 12px;
+}
+.field span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #eadbd8;
+  border-radius: 9px;
+  background: #fffaf8;
+  color: var(--brown);
+  outline: none;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: #d9a6b1;
+}
+.field input[type="file"] {
+  padding: 7px;
+  font-size: 10px;
+}
+.save-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 11px;
+  border: 0;
+  border-radius: 9px;
+  background: #a96f7c;
+  color: white;
+}
+@media (min-width: 600px) {
+  body {
+    padding: 25px 0;
+    background:
+      radial-gradient(circle at 10% 20%, #f3dfe5 0, transparent 25%),
+      radial-gradient(circle at 90% 80%, #e4eadf 0, transparent 25%),
+      #f8efeb;
+  }
+  .page {
+    border-radius: 22px;
+    box-shadow: 0 15px 60px rgba(121, 86, 84, .10);
+  }
+  .bottom-nav {
+    bottom: 25px;
+    border: 1px solid #f0e2df;
+    border-radius: 0 0 22px 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
 </head>
 <body>
-
-    <!-- 1. ส่วน Header & โลโก้ -->
-    <header>
-        <!-- เปลี่ยน URL รูปภาพโลโก้ของคุณตรง src -->
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Logo" class="logo">
-        <div class="shop-name">🎀 My Little Shop ✨</div>
-        <p style="font-size: 0.8rem; color: #aaa;">ยินดีต้อนรับสู่ร้านค้าสุดน่ารักค่ะ</p>
-    </header>
-
-    <!-- 2. ส่วนเครื่องเล่นเพลง (Music Player) -->
-    <div class="music-card">
-        <div class="music-info">
-            🎵 <b>BGM:</b> เสียงเพลงน่ารักๆ
-        </div>
-        <button class="music-btn" onclick="toggleMusic()" id="playBtn">▶️ เปิดเพลง</button>
-        <!-- เปลี่ยน URL ไฟล์เพลง .mp3 ของคุณได้ตรง src -->
-        <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<div class="page">
+  <div class="announcement">
+    A LITTLE SHOP FULL OF LOVELY THINGS
+  </div>
+  <header class="header" id="home">
+    <div class="logo-frame">
+      <img id="logoImage" alt="โลโก้ร้าน" hidden>
+      <div class="logo-placeholder" id="logoPlaceholder">
+        ♡
+        <small>LOGO</small>
+      </div>
     </div>
-
-    <div class="container">
-        <!-- 3. ส่วนแบนเนอร์ร้าน -->
-        <div class="banner-box">
-            <!-- เปลี่ยน URL รูปภาพแบนเนอร์ของคุณตรง src -->
-            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Banner" class="banner-img">
-        </div>
-
-        <div class="section-title">🌸 สินค้าแนะนำ 🌸</div>
-
-        <!-- 4. ส่วนรายการสินค้า -->
-        <div class="grid">
-            <!-- สินค้าชิ้นที่ 1 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Product">
-                <div class="product-title">สินค้าสุดน่ารัก 01</div>
-                <div class="price">฿ 250</div>
-                <!-- ใส่ลิงก์ LINE หรือช่องทางสั่งซื้อของคุณตรง href -->
-                <a href="https://line.me" class="buy-btn">สั่งซื้อสินค้า 💬</a>
-            </div>
-
-            <!-- สินค้าชิ้นที่ 2 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Product">
-                <div class="product-title">สินค้าสุดน่ารัก 02</div>
-                <div class="price">฿ 320</div>
-                <a href="https://line.me" class="buy-btn">สั่งซื้อสินค้า 💬</a>
-            </div>
-        </div>
+    <div class="brand">
+      <h1 id="storeName">Ribbon Garden</h1>
+      <p id="storeTagline">little things, lovely feelings</p>
     </div>
-
-    <!-- 5. สคริปต์เปิด-ปิดเพลง -->
-    <script>
-        var music = document.getElementById("bgMusic");
-        var btn = document.getElementById("playBtn");
-
-        function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                btn.innerHTML = "⏸️ หยุดเพลง";
-                btn.style.backgroundColor = "#b5ead7";
-            } else {
-                music.pause();
-                btn.innerHTML = "▶️ เปิดเพลง";
-                btn.style.backgroundColor = "#ffb7c5";
-            }
-        }
-    </script>
+    <div class="header-mark">୨୧</div>
+  </header>
+  <main>
+    <!-- BANNER -->
+    <section class="banner-wrap">
+      <div class="banner">
+        <img class="banner-image" id="bannerImage" alt="ภาพปกร้าน" hidden>
+        <div class="banner-content">
+          <span class="banner-label">WELCOME TO OUR SHOP</span>
+          <h2 id="bannerTitle">ความน่ารัก<br>ที่อยากให้คุณเก็บไว้</h2>
+          <p id="bannerDescription">
+            คัดสรรสิ่งเล็ก ๆ ด้วยความตั้งใจ<br>
+            ให้ทุกวันเป็นวันที่พิเศษขึ้น
+          </p>
+          <button class="banner-button" onclick="goTo('products')">
+            เลือกชมสินค้า <span>↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="intro-note" id="announcementText">
+      Made with love, packed with care.<br>
+      ขอบคุณที่แวะเข้ามาเยี่ยมชมร้านเล็ก ๆ ของเรานะคะ
+    </div>
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+      <div class="section-heading">
+        <div>
+          <h2>Our Little Shop</h2>
+          <p>ของน่ารักที่เลือกมาเพื่อคุณ</p>
+        </div>
+        <span class="section-count" id="productCount">04 ITEMS</span>
+      </div>
+      <div class="categories">
+        <button class="category active" onclick="filterProducts('all', this)">ทั้งหมด</button>
+        <button class="category" onclick="filterProducts('digital', this)">งานดิจิทัล</button>
+        <button class="category" onclick="filterProducts('design', this)">งานออกแบบ</button>
+        <button class="category" onclick="filterProducts('other', this)">สินค้าอื่น ๆ</button>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-category="design">
+          <div class="product-photo product-placeholder">୨୧</div>
+          <div class="product-info">
+            <div class="product-tag">DESIGN SERVICE</div>
+            <h3 class="product-name">รับทำป้ายร้าน</h3>
+            <div class="product-bottom">
+              <span class="product-price">฿59</span>
+              <button class="buy-button" onclick="contactShop('รับทำป้ายร้าน')" aria-label="สอบถามสินค้า">↗</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-category="digital">
+          <div class="product-photo product-placeholder">♡</div>
+          <div class="product-info">
+            <div class="product-tag">DIGITAL ITEM</div>
+            <h3 class="product-name">ฟอนต์น่ารัก</h3>
+            <div class="product-bottom">
+              <span class="product-price">฿29</span>
+              <button class="buy-button" onclick="contactShop('ฟอนต์น่ารัก')" aria-label="สอบถามสินค้า">↗</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-category="design">
+          <div class="product-photo product-placeholder">✿</div>
+          <div class="product-info">
+            <div class="product-tag">CUSTOM DESIGN</div>
+            <h3 class="product-name">รับทำลายน้ำ</h3>
+            <div class="product-bottom">
+              <span class="product-price">฿29</span>
+              <button class="buy-button" onclick="contactShop('รับทำลายน้ำ')" aria-label="สอบถามสินค้า">↗</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-category="other">
+          <div class="product-photo product-placeholder">❀</div>
+          <div class="product-info">
+            <div class="product-tag">SPECIAL SERVICE</div>
+            <h3 class="product-name">บริการอื่น ๆ</h3>
+            <div class="product-bottom">
+              <span class="product-price">สอบถาม</span>
+              <button class="buy-button" onclick="contactShop('บริการอื่น ๆ')" aria-label="สอบถามสินค้า">↗</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="story-card">
+        <span class="story-eyebrow">A NOTE FROM OUR SHOP</span>
+        <h3 id="aboutTitle">ร้านเล็ก ๆ<br>ที่ตั้งใจทำทุกชิ้น</h3>
+        <p id="aboutDescription">
+          เราเชื่อว่าความสุขซ่อนอยู่ในรายละเอียดเล็ก ๆ
+          ทุกชิ้นงานจึงถูกสร้างขึ้นด้วยความใส่ใจ
+          หวังว่าจะเป็นส่วนหนึ่งของวันดี ๆ ของคุณ
+        </p>
+      </div>
+    </section>
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+      <div class="section-heading">
+        <div>
+          <h2>Kind Words</h2>
+          <p>เสียงตอบรับจากลูกค้าของเรา</p>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-score">
+          <strong id="ratingScore">5.0</strong>
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <span id="reviewCount">รีวิวจากลูกค้า</span>
+          </div>
+        </div>
+        <p id="reviewMessage">
+          ทุกคำรีวิวคือกำลังใจสำคัญของร้าน
+          ขอบคุณที่สนับสนุนผลงานของเรานะคะ
+        </p>
+        <button class="banner-button" onclick="contactShop('สอบถามวิธีรีวิว')">
+          รีวิวหรือสอบถาม <span>↗</span>
+        </button>
+      </div>
+    </section>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-heading">
+        <div>
+          <h2>Let's Connect</h2>
+          <p>ติดตามผลงานและติดต่อร้านได้ที่นี่</p>
+        </div>
+      </div>
+      <div class="contact-list">
+        <a class="contact-link" id="lineLink" href="https://line.me/" target="_blank" rel="noopener">
+          <div class="contact-left">
+            <div class="contact-icon">L</div>
+            <div>
+              <strong>LINE Official</strong>
+              <small id="lineText">เพิ่ม LINE ของร้าน</small>
+            </div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a class="contact-link" id="instagramLink" href="https://www.instagram.com/" target="_blank" rel="noopener">
+          <div class="contact-left">
+            <div class="contact-icon">I</div>
+            <div>
+              <strong>Instagram</strong>
+              <small id="instagramText">ติดตามผลงานของเรา</small>
+            </div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a class="contact-link" id="facebookLink" href="https://www.facebook.com/" target="_blank" rel="noopener">
+          <div class="contact-left">
+            <div class="contact-icon">f</div>
+            <div>
+              <strong>Facebook</strong>
+              <small id="facebookText">พูดคุยกับทางร้าน</small>
+            </div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-brand" id="footerName">Ribbon Garden</div>
+      <p>
+        Little things made with love.<br>
+        Thank you for visiting our little corner.
+      </p>
+    </footer>
+    <!-- CUSTOMIZER -->
+    <button class="admin-toggle" onclick="toggleCustomizer()">
+      ปรับแต่งหน้าร้าน
+    </button>
+    <section class="customizer" id="customizer" hidden>
+      <h3>ปรับแต่งหน้าร้าน</h3>
+      <p>
+        เลือกรูปจากเครื่องและแก้ไขข้อความได้
+        ตัวอย่างจะแสดงบนหน้านี้ทันที
+      </p>
+      <label class="field">
+        <span>ชื่อร้าน</span>
+        <input id="editStoreName" placeholder="ชื่อร้านของคุณ">
+      </label>
+      <label class="field">
+        <span>คำโปรยใต้ชื่อร้าน</span>
+        <input id="editTagline" placeholder="คำโปรยร้าน">
+      </label>
+      <label class="field">
+        <span>รูปโลโก้ร้าน</span>
+        <input type="file" id="uploadLogo" accept="image/*">
+      </label>
+      <label class="field">
+        <span>รูปปก Banner</span>
+        <input type="file" id="uploadBanner" accept="image/*">
+      </label>
+      <label class="field">
+        <span>หัวข้อบน Banner</span>
+        <textarea id="editBannerTitle" rows="2" placeholder="ข้อความหัวข้อ"></textarea>
+      </label>
+      <label class="field">
+        <span>คำอธิบาย Banner</span>
+        <textarea id="editBannerDescription" rows="2" placeholder="คำอธิบายร้าน"></textarea>
+      </label>
+      <label class="field">
+        <span>ประกาศใต้ Banner</span>
+        <textarea id="editAnnouncement" rows="2"></textarea>
+      </label>
+      <label class="field">
+        <span>หัวข้อแนะนำร้าน</span>
+        <textarea id="editAboutTitle" rows="2"></textarea>
+      </label>
+      <label class="field">
+        <span>รายละเอียดแนะนำร้าน</span>
+        <textarea id="editAboutDescription" rows="3"></textarea>
+      </label>
+      <label class="field">
+        <span>LINE URL ของร้าน</span>
+        <input id="editLine" placeholder="https://line.me/...">
+      </label>
+      <label class="field">
+        <span>ข้อความ LINE</span>
+        <input id="editLineText" placeholder="@yourshop">
+      </label>
+      <label class="field">
+        <span>Instagram URL</span>
+        <input id="editInstagram" placeholder="https://instagram.com/...">
+      </label>
+      <label class="field">
+        <span>Facebook URL</span>
+        <input id="editFacebook" placeholder="https://facebook.com/...">
+      </label>
+      <button class="save-button" onclick="saveSettings()">
+        บันทึกการตั้งค่าในอุปกรณ์นี้
+      </button>
+      <button class="admin-toggle" onclick="resetSettings()">
+        คืนค่าหน้าร้านตัวอย่าง
+      </button>
+    </section>
+  </main>
+</div>
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+  <a class="nav-item active" href="#home" onclick="setActive(this)">
+    <span class="nav-icon">⌂</span>หน้าร้าน
+  </a>
+  <a class="nav-item" href="#products" onclick="setActive(this)">
+    <span class="nav-icon">♡</span>สินค้า
+  </a>
+  <a class="nav-item" href="#reviews" onclick="setActive(this)">
+    <span class="nav-icon">☆</span>รีวิว
+  </a>
+  <a class="nav-item" href="#contact" onclick="setActive(this)">
+    <span class="nav-icon">↗</span>ติดต่อ
+  </a>
+</nav>
+<script>
+const $ = id => document.getElementById(id);
+const defaultSettings = {
+  storeName: "Ribbon Garden",
+  tagline: "little things, lovely feelings",
+  bannerTitle: "ความน่ารัก\nที่อยากให้คุณเก็บไว้",
+  bannerDescription: "คัดสรรสิ่งเล็ก ๆ ด้วยความตั้งใจ\nให้ทุกวันเป็นวันที่พิเศษขึ้น",
+  announcement: "Made with love, packed with care.\nขอบคุณที่แวะเข้ามาเยี่ยมชมร้านเล็ก ๆ ของเรานะคะ",
+  aboutTitle: "ร้านเล็ก ๆ\nที่ตั้งใจทำทุกชิ้น",
+  aboutDescription: "เราเชื่อว่าความสุขซ่อนอยู่ในรายละเอียดเล็ก ๆ ทุกชิ้นงานจึงถูกสร้างขึ้นด้วยความใส่ใจ หวังว่าจะเป็นส่วนหนึ่งของวันดี ๆ ของคุณ",
+  line: "https://line.me/",
+  lineText: "เพิ่ม LINE ของร้าน",
+  instagram: "https://www.instagram.com/",
+  facebook: "https://www.facebook.com/"
+};
+let settings = {...defaultSettings};
+let logoData = "";
+let bannerData = "";
+function renderSettings() {
+  $("storeName").textContent = settings.storeName;
+  $("footerName").textContent = settings.storeName;
+  $("editStoreName").value = settings.storeName;
+  $("storeTagline").textContent = settings.tagline;
+  $("editTagline").value = settings.tagline;
+  $("bannerTitle").innerText = settings.bannerTitle;
+  $("editBannerTitle").value = settings.bannerTitle;
+  $("bannerDescription").innerText = settings.bannerDescription;
+  $("editBannerDescription").value = settings.bannerDescription;
+  $("announcementText").innerText = settings.announcement;
+  $("editAnnouncement").value = settings.announcement;
+  $("aboutTitle").innerText = settings.aboutTitle;
+  $("editAboutTitle").value = settings.aboutTitle;
+  $("aboutDescription").innerText = settings.aboutDescription;
+  $("editAboutDescription").value = settings.aboutDescription;
+  $("lineLink").href = safeUrl(settings.line, "https://line.me/");
+  $("lineText").textContent = settings.lineText;
+  $("editLine").value = settings.line;
+  $("editLineText").value = settings.lineText;
+  $("instagramLink").href = safeUrl(settings.instagram, "https://www.instagram.com/");
+  $("editInstagram").value = settings.instagram;
+  $("facebookLink").href = safeUrl(settings.facebook, "https://www.facebook.com/");
+  $("editFacebook").value = settings.facebook;
+  if (logoData) {
+    $("logoImage").src = logoData;
+    $("logoImage").hidden = false;
+    $("logoPlaceholder").hidden = true;
+  } else {
+    $("logoImage").hidden = true;
+    $("logoPlaceholder").hidden = false;
+  }
+  if (bannerData) {
+    $("bannerImage").src = bannerData;
+    $("bannerImage").hidden = false;
+  } else {
+    $("bannerImage").hidden = true;
+  }
+}
+function safeUrl(value, fallback) {
+  try {
+    const url = new URL(value);
+    return ["https:", "http:"].includes(url.protocol)
+      ? url.href
+      : fallback;
+  } catch {
+    return fallback;
+  }
+}
+function toggleCustomizer() {
+  const panel = $("customizer");
+  panel.hidden = !panel.hidden;
+  if (!panel.hidden) {
+    panel.scrollIntoView({behavior: "smooth", block: "start"});
+  }
+}
+function saveSettings() {
+  settings = {
+    storeName: $("editStoreName").value.trim() || defaultSettings.storeName,
+    tagline: $("editTagline").value.trim(),
+    bannerTitle: $("editBannerTitle").value,
+    bannerDescription: $("editBannerDescription").value,
+    announcement: $("editAnnouncement").value,
+    aboutTitle: $("editAboutTitle").value,
+    aboutDescription: $("editAboutDescription").value,
+    line: $("editLine").value.trim(),
+    lineText: $("editLineText").value.trim(),
+    instagram: $("editInstagram").value.trim(),
+    facebook: $("editFacebook").value.trim()
+  };
+  renderSettings();
+  // Save text settings to this browser only.
+  try {
+    localStorage.setItem("ribbonGardenSettings", JSON.stringify(settings));
+    localStorage.setItem("ribbonGardenLogo", logoData);
+    localStorage.setItem("ribbonGardenBanner", bannerData);
+    alert("บันทึกแล้วในเบราว์เซอร์นี้");
+  } catch (error) {
+    alert("แสดงการแก้ไขแล้ว แต่พื้นที่จัดเก็บไม่เพียงพอ กรุณาใช้รูปขนาดเล็กลง");
+  }
+}
+function resetSettings() {
+  if (!confirm("ต้องการคืนค่าหน้าร้านตัวอย่างใช่ไหม?")) return;
+  settings = {...defaultSettings};
+  logoData = "";
+  bannerData = "";
+  try {
+    localStorage.removeItem("ribbonGardenSettings");
+    localStorage.removeItem("ribbonGardenLogo");
+    localStorage.removeItem("ribbonGardenBanner");
+  } catch (error) {}
+  $("uploadLogo").value = "";
+  $("uploadBanner").value = "";
+  renderSettings();
+}
+function previewImage(input, callback) {
+  const file = input.files && input.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) {
+    alert("กรุณาเลือกไฟล์รูปภาพ");
+    input.value = "";
+    return;
+  }
+  if (file.size > 5 * 1024 * 1024) {
+    alert("กรุณาเลือกรูปขนาดไม่เกิน 5 MB");
+    input.value = "";
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => callback(reader.result);
+  reader.readAsDataURL(file);
+}
+$("uploadLogo").addEventListener("change", function() {
+  previewImage(this, data => {
+    logoData = data;
+    renderSettings();
+  });
+});
+$("uploadBanner").addEventListener("change", function() {
+  previewImage(this, data => {
+    bannerData = data;
+    renderSettings();
+  });
+});
+function goTo(id) {
+  $(id).scrollIntoView({behavior: "smooth", block: "start"});
+}
+function setActive(item) {
+  document.querySelectorAll(".nav-item").forEach(el => {
+    el.classList.remove("active");
+  });
+  item.classList.add("active");
+}
+function filterProducts(category, button) {
+  document.querySelectorAll(".category").forEach(el => {
+    el.classList.remove("active");
+  });
+  button.classList.add("active");
+  document.querySelectorAll(".product-card").forEach(card => {
+    card.hidden = category !== "all" &&
+                  card.dataset.category !== category;
+  });
+}
+function contactShop(productName) {
+  const line = safeUrl(settings.line, "");
+  const fallback = "https://line.me/";
+  if (line && line !== fallback) {
+    window.open(line, "_blank", "noopener,noreferrer");
+  } else {
+    alert("กรุณาตั้งค่า LINE ของร้านก่อนนะคะ\nรายการที่สนใจ: " + productName);
+  }
+}
+// Load settings saved in this browser.
+try {
+  const saved = localStorage.getItem("ribbonGardenSettings");
+  if (saved) settings = {...defaultSettings, ...JSON.parse(saved)};
+  logoData = localStorage.getItem("ribbonGardenLogo") || "";
+  bannerData = localStorage.getItem("ribbonGardenBanner") || "";
+} catch (error) {
+  settings = {...defaultSettings};
+}
+renderSettings();
+</script>
 </body>
 </html>

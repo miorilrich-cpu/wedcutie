@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Little Shop ✨</title>
+    <style>
+        /* --- การตั้งค่าธีมและสีพาสเทล --- */
+        :root {
+            --primary-color: #ffb7c5; /* ชมพูพาสเทล */
+            --secondary-color: #b5ead7; /* เขียวมิ้นต์ */
+            --accent-color: #ffdac1; /* ส้มพาสเทล */
+            --bg-color: #fff0f5; /* ชมพูอ่อนมากๆ */
+            --text-color: #6c5ce7; /* ม่วงเข้ม */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif, system-ui;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #555;
+            padding-bottom: 50px;
+        }
+
+        /* --- ส่วน Header & โลโก้ --- */
+        header {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(255, 183, 197, 0.4);
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .shop-name {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* --- ส่วนเครื่องเล่นเพลง (Music Player) --- */
+        .music-card {
+            background: white;
+            margin: 15px auto;
+            padding: 12px 20px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 2px dashed var(--primary-color);
+        }
+
+        .music-info {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .music-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- ส่วนแบนเนอร์ร้าน --- */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .banner-box {
+            width: 100%;
+            height: 180px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- ส่วนสินค้า (Product Grid) --- */
+        .section-title {
+            text-align: center;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 130px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #e84393;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .buy-btn {
+            display: block;
+            background-color: var(--secondary-color);
+            color: #2d3436;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ส่วน Header & โลโก้ -->
+    <header>
+        <!-- เปลี่ยน URL รูปภาพโลโก้ของคุณตรง src -->
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Logo" class="logo">
+        <div class="shop-name">🎀 My Little Shop ✨</div>
+        <p style="font-size: 0.8rem; color: #aaa;">ยินดีต้อนรับสู่ร้านค้าสุดน่ารักค่ะ</p>
+    </header>
+
+    <!-- 2. ส่วนเครื่องเล่นเพลง (Music Player) -->
+    <div class="music-card">
+        <div class="music-info">
+            🎵 <b>BGM:</b> เสียงเพลงน่ารักๆ
+        </div>
+        <button class="music-btn" onclick="toggleMusic()" id="playBtn">▶️ เปิดเพลง</button>
+        <!-- เปลี่ยน URL ไฟล์เพลง .mp3 ของคุณได้ตรง src -->
+        <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    </div>
+
+    <div class="container">
+        <!-- 3. ส่วนแบนเนอร์ร้าน -->
+        <div class="banner-box">
+            <!-- เปลี่ยน URL รูปภาพแบนเนอร์ของคุณตรง src -->
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Banner" class="banner-img">
+        </div>
+
+        <div class="section-title">🌸 สินค้าแนะนำ 🌸</div>
+
+        <!-- 4. ส่วนรายการสินค้า -->
+        <div class="grid">
+            <!-- สินค้าชิ้นที่ 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Product">
+                <div class="product-title">สินค้าสุดน่ารัก 01</div>
+                <div class="price">฿ 250</div>
+                <!-- ใส่ลิงก์ LINE หรือช่องทางสั่งซื้อของคุณตรง href -->
+                <a href="https://line.me" class="buy-btn">สั่งซื้อสินค้า 💬</a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Product">
+                <div class="product-title">สินค้าสุดน่ารัก 02</div>
+                <div class="price">฿ 320</div>
+                <a href="https://line.me" class="buy-btn">สั่งซื้อสินค้า 💬</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. สคริปต์เปิด-ปิดเพลง -->
+    <script>
+        var music = document.getElementById("bgMusic");
+        var btn = document.getElementById("playBtn");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = "⏸️ หยุดเพลง";
+                btn.style.backgroundColor = "#b5ead7";
+            } else {
+                music.pause();
+                btn.innerHTML = "▶️ เปิดเพลง";
+                btn.style.backgroundColor = "#ffb7c5";
+            }
+        }
+    </script>
+</body>
+</html>
